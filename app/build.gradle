@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.uestc.lyreg.spongycastle"
+        minSdkVersion 21
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+
+//        jackOptions {
+//            enabled true
+//        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:design:23.3.0'
+
+    //Spongy Castle加密库
+    compile "com.madgag.spongycastle:core:$rootProject.ext.spongycastleVersion"
+    compile "com.madgag.spongycastle:prov:$rootProject.ext.spongycastleVersion"
+    compile "com.madgag.spongycastle:pkix:$rootProject.ext.spongycastleVersion"
+    compile "com.madgag.spongycastle:pg:$rootProject.ext.spongycastleVersion"
+
+    //RxAndroid and RxJava
+    compile "io.reactivex:rxandroid:$rootProject.ext.rxandroidVersion"
+    compile "io.reactivex:rxjava:$rootProject.ext.rxjavaVersion"
+
+    //RxBinding
+    compile "com.jakewharton.rxbinding:rxbinding:$rootProject.ext.rxbindingVersion"
+    compile "com.jakewharton.rxbinding:rxbinding-appcompat-v7:$rootProject.ext.rxbindingVersion"
+    compile "com.jakewharton.rxbinding:rxbinding-design:$rootProject.ext.rxbindingVersion"
+
+}

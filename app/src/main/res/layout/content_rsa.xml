@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.uestc.lyreg.spongycastle.RsaActivity"
+    tools:showIn="@layout/activity_rsa"
+    android:id="@+id/rsa_relativeLayout">
+
+    <LinearLayout
+        android:id="@+id/layout_rsa_plain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="PlainText:"
+            android:textSize="22dp"/>
+
+        <EditText
+            android:id="@+id/edit_plain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="text"/>
+    </LinearLayout>
+
+
+    <ScrollView
+        android:id="@+id/layout_rsa_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/textview_background"
+        android:layout_above="@+id/layout_rsa_buttons"
+        android:layout_below="@+id/layout_rsa_plain">
+
+        <TextView
+            android:id="@+id/textview_rsa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"/>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/layout_rsa_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/button_genkeypair"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/AppTheme.Button.Primary"
+            android:text="生成公私钥"
+            android:onClick="onButtonGenKeyPairClicked"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/button_encryption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="4dp"
+                style="@style/AppTheme.Button.Primary"
+                android:text="加密数据"
+                android:onClick="onButtonEncClicked"
+                android:enabled="false"/>
+            <Button
+                android:id="@+id/button_sign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="4dp"
+                style="@style/AppTheme.Button.Primary"
+                android:text="签名数据"
+                android:onClick="onButtonSignClicked"
+                android:enabled="false"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/button_decryption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="4dp"
+                style="@style/AppTheme.Button.Primary"
+                android:text="解密数据"
+                android:onClick="onButtonDecryptClicked"
+                android:enabled="false"/>
+            <Button
+                android:id="@+id/button_verify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="4dp"
+                style="@style/AppTheme.Button.Primary"
+                android:text="验签数据"
+                android:onClick="onButtonVerifyClicked"
+                android:enabled="false"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
